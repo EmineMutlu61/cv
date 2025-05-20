@@ -58,10 +58,15 @@ nav a:hover {
   margin-bottom: 10px;
 }
 
-.hero-text h2 {
+.hero-text p {
   font-size: 24px;
   font-weight: normal;
   color: #555;
+  line-height: 1.5; 
+  text-align: left;    
+  text-indent: 40px; 
+  margin: 0px auto;
+  max-width: 800px;
 }
 /* İçerik sayfaları için */
 .content {
@@ -86,27 +91,6 @@ nav a:hover {
   color: #444;
 }
 
-form input, form textarea {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 15px;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
-form input[type="submit"] {
-  background-color: #b7b7e5;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-form input[type="submit"]:hover {
-  background-color: #9c9cda;
-}
 footer {
   position: fixed;
   bottom: 0;
