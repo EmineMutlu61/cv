@@ -2,13 +2,13 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #FDDDE6;/* açık pembe */
+  background-color:#E6FDD6/* açık yeşil */
   color: #333;
 }
 
 /* Üst menü */
 header {
-  background-color: #b7b7e5; /* pastel lila */
+  background-color: #6E80A2; /* yeşil-mavi */
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
