@@ -1,14 +1,41 @@
-/* Genel ayarlar */
+/* ==========================================================================
+   GENEL AYARLAR VE SAYFA YERLEŞİMİ
+   ========================================================================== */
+
+html {
+  /* Ana zemin rengi her zaman yeşil olacak */
+  background-color: #EAF2E3; 
+}
+
+/*
+ * BODY'yi flex container yaparak footer sorununu çözüyoruz.
+ * Bu yapı, içeriği kısa olan sayfalarda bile footer'ı sayfanın en altına iter.
+ */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #EAF2E3;
   color: #595959;
+  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Üst menü */
+/*
+ * Main etiketi, header ve footer arasındaki tüm boşluğu dolduran,
+ * görünmez bir "esnek" alan görevi görür. Arka planı yoktur,
+ * böylece html'in yeşil rengini gösterir.
+ */
+main {
+  flex-grow: 1;
+}
+
+/* ==========================================================================
+   SAYFA BİLEŞENLERİ
+   ========================================================================== */
+
 header {
-  background-color:#FAF9F6; 
+  background-color: #FAF9F6; 
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
@@ -16,16 +43,18 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+.logo, nav a {
+  color: #4A604A;
+}
+
 .logo {
   font-size: 24px;
   font-weight: bold;
-  color: #4A604A;
 }
 
 nav a {
   margin-left: 20px;
   text-decoration: none;
-  color: #4A604A;
   font-weight: 500;
 }
 
@@ -33,7 +62,7 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Hero bölümü */
+/* Ana Sayfa Karşılama Bölümü (Hero) */
 .hero {
   display: flex;
   flex-wrap: wrap;
@@ -42,9 +71,10 @@ nav a:hover {
   padding: 50px 30px;
 }
 
+/* --- YENİ EKLENEN VE FOTOĞRAF BOYUTUNU DÜZELTEN BÖLÜM --- */
 .hero-image img {
-  max-width: 400px;
-  width: 100%;
+  max-width: 400px; /* Resmin en fazla 400px genişliğinde olmasını sağlar */
+  width: 100%;      /* Konteynerinden taşmasını engeller ve küçük ekranlarda küçülmesini sağlar */
   border-radius: 10px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
@@ -53,49 +83,60 @@ nav a:hover {
   max-width: 500px;
   margin-left: 40px;
 }
+/* --- EKLENEN BÖLÜM SONU --- */
 
-.hero-text h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
 
-.hero-text p {
-  font-size: 24px;
-  font-weight: normal;
-  color: #555;
-  line-height: 1.5; 
-  text-align: left;    
-  text-indent: 40px; 
-  margin: 0px auto;
-  max-width: 800px;
-}
-/* İçerik sayfaları için */
+/* İçerik Alanları (CV, İletişim vb. için "beyaz kağıt" kutusu) */
 .content {
   max-width: 700px;
   margin: 60px auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: #FAF9F6;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   text-align: left;
 }
 
-.content h1 {
+.content h1, .hero-text h1 {
   font-size: 28px;
-  color: #333;
+  color: #4A604A;
   margin-bottom: 20px;
 }
 
-.content p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #444;
+/* Alt Bilgi (Footer) */
+footer {
+  width: 100%; 
+  background-color: #EAF2E3;
+  color: #4A604A;
+  padding: 20px 0;
+  text-align: center;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: auto;
-  background-color: #EAF2E3; 
+/* ==========================================================================
+   RESPONSIVE TASARIM (MOBİL UYUMLULUK)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+  .hero {
+    flex-direction: column;
+    padding: 30px 15px;
+  }
+  
+  /* --- EKSİK OLAN RESPONSIVE KISMI EKLENDİ --- */
+  .hero-text {
+    margin-left: 0;
+    margin-top: 30px;
+    text-align: center;
+  }
+  /* --- EKLENEN BÖLÜM SONU --- */
+
+  .content {
+    margin: 40px 15px;
+    padding: 15px;
+  }
 }
